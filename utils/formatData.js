@@ -11,8 +11,7 @@ const formatData = ( records ) => {
 		city: r.city,
 		station: r.station,
 		pollutant_id: r.pollutant_id,
-		last_update: dayjs(r.last_update, "DD-MM-YYYY HH:mm:ss", "Asia/Kolkata")
-					.toISOString() ,
+		last_update: r.last_update,
 		latitude: parseFloat(r.latitude),
 		longitude: parseFloat(r.longitude),
 		min_value: parseFloat(r.min_value),
