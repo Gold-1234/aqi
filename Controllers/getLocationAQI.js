@@ -23,9 +23,8 @@ export const getLocationAQI = async ( req, res ) => {
 					.from('aqi_records')
 					.select()
 					.eq('station', closestStation.station)
-					.eq('pollutant_id', 'CO')
 					.order('last_update', { ascending: false })
-					.limit(1)
+					.limit(7)
 
 	// const d2 =  await axios.get(`https://api.data.gov.in/resource/3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69?api-key=${process.env.CPCB_API_KEY}&format=json`, 
 	// 	{
@@ -46,8 +45,7 @@ export const getLocationAQI = async ( req, res ) => {
 	if(!data){
 		return res.status(400).json("no data")
 	}
-	// console.log(data);
-	// console.log("aqi", data.data.records[0]);
+	
 	
 	return res.status(200).json(data)
 }
