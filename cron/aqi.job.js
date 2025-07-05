@@ -1,7 +1,6 @@
-import cron from "node-cron"
-import insertAQIrecords from "../Controllers/addData";
+import insertAQIrecords from "../Controllers/addData.js";
 
-cron.schedule("1 * * * *", async () => {
+const run = async () => {
 	try {
 		console.log(`Starting getAQI cron job : ${new Date().toISOString()}`);
 		const count = await insertAQIrecords();
@@ -11,4 +10,6 @@ cron.schedule("1 * * * *", async () => {
 		console.log(error);
 		process.exit(1);
 	}
-})
+}
+
+run()
