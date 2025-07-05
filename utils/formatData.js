@@ -7,7 +7,7 @@ const formatData = ( records ) => {
 		city: r.city,
 		station: r.station,
 		pollutant_id: r.pollutant_id,
-		last_update: new Date(dayjs(r.last_update).toISOString()),
+		last_update: dayjs(r.last_update, "DD-MM-YYYY HH:mm:ss").toISOString() ,
 		latitude: parseFloat(r.latitude),
 		longitude: parseFloat(r.longitude),
 		min_value: parseFloat(r.min_value),
@@ -17,3 +17,5 @@ const formatData = ( records ) => {
 }
 
 export default formatData;
+
+console.log(dayjs('05-07-2025 12:00:00',"DD-MM-YYYY HH:mm:ss").toISOString())

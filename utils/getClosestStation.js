@@ -15,7 +15,7 @@ const getClosestStation = async ( userLongitude, userLatitude ) => {
 
 			const dist = getDistanceBetweenPointsNew(userLatitude, userLongitude, parseFloat(latitude), parseFloat(longitude) )
 			
-			distances.push({ station, dist })
+			distances.push({ station, dist, longitude, latitude })
 		})
 	}
 
